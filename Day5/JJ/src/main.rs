@@ -45,10 +45,12 @@ fn main() -> std::io::Result<()> {
                         println!(" not 45 degrees {} {} {} {} ", x0, x1, y0, y1);
                         continue;
                     }
-                    else {
-                        // println!("45 degrees {} {} {} {} ", x0, x1, y0, y1);
-                    }
+                    // else {
+                    //     // println!("45 degrees {} {} {} {} ", x0, x1, y0, y1);
+                    // }
                 }
+                let range_x = if x0 > x1 { x1..=x0 } else { x0..=x1 };
+
                 if (x0 > x1) {
                     let xtemp = x1;
                     x1 = x0;
@@ -59,13 +61,14 @@ fn main() -> std::io::Result<()> {
                     y1 = y0;
                     y0 = ytemp;
                 }
-                for i in x0..=x1 {
-                    for j in y0..=y1 {
+                for i in range_x {
+                    let range_y = if y0 > y1 { y1..=y0 } else { y0..=y1 };
+                    for j in range_y {
                         map.entry((i,j)).and_modify(|counter| *counter += 1).or_insert(1);
                         // println!("i {}", i);
                         // println!("i {}", j);
-                        // dbg!(&map);
                     }
+                    dbg!(range_x.index());
                 }
             }
         
