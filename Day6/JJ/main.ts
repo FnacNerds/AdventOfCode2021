@@ -1,4 +1,4 @@
-let input = await Deno.readTextFile("../input.txt", "utf-8");
+let input = await Deno.readTextFile("input.txt", "utf-8");
 let array = input.split(",");
 let count = 0;
 while (count < 81) {
