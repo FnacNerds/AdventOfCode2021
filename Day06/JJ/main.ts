@@ -1,21 +1,33 @@
 let input = await Deno.readTextFile("input.txt", "utf-8");
 let array = input.split(",");
 let count = 0;
-while (count < 81) {
-  let resets = 0;
-  for (let i = 0; i < array.length; i++) {
-    let e = Number(array[i]);
-    if (e > 0) e--;
-    else if (e === 0) {
-      e = 6;
-      resets++;
+let map = {};
+for (let i = 0; i < array.length; i++) {
+  let e = Number(array[i]);
+  if (!map[e]) {
+    map[e] = 1;
+  } else {
+    map[e] += 1;
+  }
+}
+while (count < 257) {
+  let mapTemp = {};
+  mapTemp[8] = map[0];
+  mapTemp[6] = map[0];
+  mapTemp[7] = map[8];
+  for (let i = 1; i <= 8; i++) {
+    if (i == 0) console.log(map[i]);
+    mapTemp[i - 1] = map[i];
+  }
+  if (Number.isInteger(map[0])) {
+    if (Number.isInteger(mapTemp[6])) {
+      mapTemp[6] += map[0];
+    } else {
+      mapTemp[6] = map[0];
     }
-    array[i] = e;
   }
-  let initLength = array.length;
-  for (let j = 0; j < resets; j++) {
-    array[initLength + j] = "8";
-  }
+  map = mapTemp;
   count++;
 }
-console.log(array.length);
+map[8] = 0;
+console.log(Object.values(map).reduce((a, b) => a + b, 0));
