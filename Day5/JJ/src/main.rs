@@ -5,7 +5,7 @@ use std::fs;
 use std::io::{BufRead, BufReader};
 
 fn main() -> std::io::Result<()> {
-    let mut reader = BufReader::new(fs::File::open("../input.txt")?);
+    let mut reader = BufReader::new(fs::File::open("input.txt")?);
     // let mut line = String::new();
     // reader.read_line(&mut line)?;
 

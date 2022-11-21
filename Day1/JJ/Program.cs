@@ -1,7 +1,7 @@
 ﻿using System.IO;
 
 public class Day1 {
-    private static readonly string input = File.ReadAllText("../input.txt");
+    private static readonly string input = File.ReadAllText("input.txt");
     public static void Main() {
         Console.WriteLine(Part1());
         Console.WriteLine(Part2());
