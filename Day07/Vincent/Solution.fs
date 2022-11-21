@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day07
+﻿namespace AdventOfCode2021.Day07
 
-open AdventOfCode2021v2.Common
-open AdventOfCode2021v2.Common.Int
+open AdventOfCode2021.Common
+open AdventOfCode2021.Common.Int
 open Microsoft.FSharp.Core
 open FSharp.Core.Operators.Checked
 

@@ -9,7 +9,6 @@
     <Compile Include="String.fs" />
     <Compile Include="FParsecResult.fs" />
     <Compile Include="Tuple.fs" />
-    <Compile Include="TestHelper.fs" />
     <Compile Include="List.fs" />
     <Compile Include="Int.fs" />
     <Compile Include="Map.fs" />
@@ -20,5 +19,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Update="FSharp.Core" Version="7.0.0" />
+    <PackageReference Include="FParsec" Version="1.1.1" />
   </ItemGroup>
 </Project>

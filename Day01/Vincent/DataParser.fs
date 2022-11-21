@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day01
+﻿namespace AdventOfCode2021.Day01
 
 open FParsec
-open AdventOfCode2021v2.Common
+open AdventOfCode2021.Common
 
 [<RequireQualifiedAccess>]
 module DataParser =

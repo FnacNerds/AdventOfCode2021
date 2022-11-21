@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day05
+﻿namespace AdventOfCode2021.Day05
 
 open FParsec
-open AdventOfCode2021v2.Common.FParsecResult
+open AdventOfCode2021.Common.FParsecResult
 open FSharp.Core.Operators.Checked
 
 [<Measure>]

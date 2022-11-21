@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode2021v2.Common
+﻿namespace AdventOfCode2021.Common
 
 [<RequireQualifiedAccess>]
 module Fun =

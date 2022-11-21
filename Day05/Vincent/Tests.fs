@@ -1,4 +1,4 @@
-﻿namespace AdventOfCode2021v2.Day05
+﻿namespace AdventOfCode2021.Day05
 
 open Swensen.Unquote
 open NUnit.Framework

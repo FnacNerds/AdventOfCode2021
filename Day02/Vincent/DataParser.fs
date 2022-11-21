@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day02
+﻿namespace AdventOfCode2021.Day02
 
 open FParsec
-open AdventOfCode2021v2.Common
+open AdventOfCode2021.Common
 
 type ParseResult =
     | Forward

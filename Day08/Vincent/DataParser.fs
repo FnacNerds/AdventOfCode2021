@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day08
+﻿namespace AdventOfCode2021.Day08
 
 open FParsec
-open AdventOfCode2021v2.Common.FParsecResult
+open AdventOfCode2021.Common.FParsecResult
 
 type Row =
     | Row of wiring: char array array * output: char array array

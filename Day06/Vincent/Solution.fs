@@ -1,6 +1,6 @@
-﻿namespace AdventOfCode2021v2.Day06
+﻿namespace AdventOfCode2021.Day06
 
-open AdventOfCode2021v2.Common
+open AdventOfCode2021.Common
 open Microsoft.FSharp.Core
 
 [<Measure>]

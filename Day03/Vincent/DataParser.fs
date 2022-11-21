@@ -1,7 +1,7 @@
-﻿namespace AdventOfCode2021v2.Day03
+﻿namespace AdventOfCode2021.Day03
 
 open FParsec
-open AdventOfCode2021v2.Common.FParsecResult
+open AdventOfCode2021.Common.FParsecResult
 
 type Bit =
     | Zero
