@@ -5,10 +5,14 @@ use std::fs;
 use std::io::{BufRead, BufReader};
 
 fn main() -> std::io::Result<()> {
+    run(false);
+    return Ok(())
+}
+fn run(diag: bool) -> std::io::Result<i32> {
     let mut reader = BufReader::new(fs::File::open("input.txt")?);
     // let mut line = String::new();
     // reader.read_line(&mut line)?;
-
+    println!("{diag}");
     let regex: Regex = Regex::new(r"(\d+),(\d+) -> (\d+),(\d+)").unwrap();
     let mut map: HashMap<(i32, i32), i32> = HashMap::with_capacity(1000000);
     let mut count = 0;
@@ -16,33 +20,33 @@ fn main() -> std::io::Result<()> {
         let mut buff = String::new();
         reader.read_line(&mut buff)?;
         // dbg!(&buff);
-        if count > 1 {
-            break;
-        }
+        // if count > 1 {
+        //     break;
+        // }
         if buff == "" {
             break;
         }
         
         if buff.trim().is_empty() {
-            println!("TOTOT");
+            // println!("TOTOT");
             continue;
         }
         &buff.trim_end();
         let mut captures = regex.captures_iter(&buff);
-        println!("TOTOTferfref");
+        // println!("TOTOTferfref");
             // println!("a: {} b: {} c: {} d: {}", cap.get(1), cap.get(2), cap.get(3), cap.get(4));
         // if let Some(cap) = iter.next() {
             for cap in captures {
-                dbg!(cap.get(2).unwrap().as_str().parse::<i32>().unwrap());
+                // dbg!(cap.get(2).unwrap().as_str().parse::<i32>().unwrap());
                 let mut x0: i32 = cap.get(1).unwrap().as_str().parse::<i32>().unwrap();
                 let mut x1: i32 = cap.get(3).unwrap().as_str().parse::<i32>().unwrap();
                 let mut y0: i32 = cap.get(2).unwrap().as_str().parse::<i32>().unwrap();
                 let mut y1: i32 = cap.get(4).unwrap().as_str().parse::<i32>().unwrap();
-                println!("a: {} b: {}", x0, x1);
+                // println!("a: {} b: {}", x0, x1);
                 // if (x0 != x1 && y0 != y1) {
                 //     continue;
                 // }
-                if (x0 - x1 != 0 && y0 - y1 != 0) {
+                if (diag && x0 - x1 != 0 && y0 - y1 != 0) {
                     if ((x0 - x1).abs() != (y0 - y1).abs()) {
                         println!(" not 45 degrees {} {} {} {} ", x0, x1, y0, y1);
                         continue;
@@ -56,7 +60,7 @@ fn main() -> std::io::Result<()> {
                                 Some(x) => {
                                     match &mut range_y.next() {
                                         Some(y) => {
-                                            println!("{} {}",x, y);
+                                            // println!("{} {}",x, y);
                                             map.entry((*x,*y)).and_modify(|counter| *counter += 1).or_insert(1);
                                         },
                                         None => { break }
@@ -95,12 +99,17 @@ fn main() -> std::io::Result<()> {
     }
     let mut result = 0;
     for (key, value) in map.clone().into_iter() {
-        println!("{:#?} {:#?}", key, value);
+        // println!("{:#?} {:#?}", key, value);
         if value > 1 {
            result += 1;
         }
     }
     // // let result = map.clone().into_iter().filter_map(|(key, value)| value > 1).collect().len(); 
-    println!("a: {}", result);
-    return Ok(());
+    // println!("a: {}", result);
+    Ok(result)
+}
+
+#[test]
+fn test_part1_no_reg() {
+    assert_eq!(run(false).ok(), Some(6564));
 }
